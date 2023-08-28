@@ -18,6 +18,7 @@
 (library
  (name ocamlggmlbert)
  (libraries ctypes.foreign)
+ (public_name ocamlggmlbert) 
  (foreign_archives bert ggml)
  (flags (:standard -verbose -ccopt -fPIC -cclib -static-libstdc++ -cclib -lstdc++))
  )
