@@ -1,0 +1,3 @@
+[submodule "lib/bert.cpp"]
+	path = lib/bert.cpp
+	url = https://github.com/skeskinen/bert.cpp.git

@@ -1,0 +1,23 @@
+(data_only_dirs bert.cpp)
+
+(rule
+ (deps (source_tree bert.cpp))
+ (targets libbert.a dllbert.so libggml.a dllggml.so)
+ (action
+ (no-infer
+  (progn
+   (setenv CFLAGS -fPIC (setenv CXXFLAGS -fPIC (chdir bert.cpp (run cmake .))))
+   (chdir bert.cpp (run cmake --build . --target bert))
+   (copy bert.cpp/libbert.a libbert.a)
+   (run touch dllbert.so)
+   (copy bert.cpp/ggml/src/libggml.a libggml.a)
+   (run touch dllggml.so)
+   ))))
+
+
+(library
+ (name ocamlggmlbert)
+ (libraries ctypes.foreign)
+ (foreign_archives bert ggml)
+ (flags (:standard -verbose -ccopt -fPIC -cclib -static-libstdc++ -cclib -lstdc++))
+ )
