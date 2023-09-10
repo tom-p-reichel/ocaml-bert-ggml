@@ -1,2 +1,5 @@
 
-let () = let m = Ocamlggmlbert.Function_description.bert_load "./bert.bin" in Ocamlggmlbert.Function_description.bert_free m
+open Ocamlggmlbert
+open Owl_pretty
+
+let () = let m = Bert.load "./ggml-model-f32.bin" in print_dsnda (Bert.encode m "Hello, world!"); Bert.free m

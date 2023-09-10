@@ -1,7 +1,7 @@
 (executable
  (public_name ocamlggmlbert)
  (name main)
- (libraries ocamlggmlbert)
+ (libraries ocamlggmlbert owl)
  (flags (:standard -verbose -ccopt -fPIC -ccopt -L./lib/))
  
 )
