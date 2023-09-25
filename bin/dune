@@ -3,7 +3,7 @@
  (modules demo)
  (name demo)
  (libraries ocamlggmlbert owl)
- (flags (:standard -verbose -ccopt -fPIC -ccopt -L./lib/))
+ (flags (:standard -verbose -ccopt -fPIC -ccopt -L./lib/ -cclib -lstdc++))
  
 )
 
@@ -11,5 +11,5 @@
  (modules query)
  (name query)
  (libraries ocamlggmlbert owl core)
- (flags (:standard -verbose -ccopt -fPIC -ccopt -L./lib/))
+ (flags (:standard -verbose -ccopt -fPIC -ccopt -L./lib/ -cclib -lstdc++))
 )
