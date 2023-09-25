@@ -48,4 +48,4 @@ let enter filename f =
 let encode b s = 
   let output_buffer = CArray.make float (Int32.to_int b.n_embed) in 
     RawBindings.bert_encode b.ctx (Int32.of_int 4) s (CArray.start output_buffer); 
-    S.init [| (Int32.to_int b.n_embed) |] (fun i -> CArray.get output_buffer i)
+    S.init [| 1; (Int32.to_int b.n_embed) |] (fun i -> CArray.get output_buffer i)

@@ -1,7 +1,15 @@
 (executable
  (public_name ocamlggmlbert)
- (name main)
+ (modules demo)
+ (name demo)
  (libraries ocamlggmlbert owl)
  (flags (:standard -verbose -ccopt -fPIC -ccopt -L./lib/))
  
+)
+
+(executable
+ (modules query)
+ (name query)
+ (libraries ocamlggmlbert owl core)
+ (flags (:standard -verbose -ccopt -fPIC -ccopt -L./lib/))
 )
